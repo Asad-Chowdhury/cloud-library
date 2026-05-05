@@ -50,6 +50,8 @@ BETTER_AUTH_URL=http://localhost:3000
 GOOGLE_CLIENT_ID=
 GOOGLE_CLIENT_SECRET=
 MONGODB_URI=
+# or
+MONGO_URI=
 ```
 
 ## Run Locally

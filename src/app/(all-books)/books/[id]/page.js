@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { headers } from "next/headers";
+import { notFound, redirect } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import BorrowButton from "@/app/components/all-books/BorrowButton";
-import { books, getBookById } from "@/app/data/books";
+import { getBookById } from "@/app/data/books";
+import { auth } from "@/app/lib/auth";
 
-export function generateStaticParams() {
-  return books.map((book) => ({ id: book.id }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
@@ -19,6 +19,14 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function BookDetailsPage({ params }) {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+
+  if (!session?.user) {
+    redirect("/login");
+  }
+
   const { id } = await params;
   const book = getBookById(id);
 

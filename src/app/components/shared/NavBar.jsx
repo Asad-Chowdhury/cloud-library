@@ -1,6 +1,7 @@
 "use client";
 
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
+
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
@@ -10,7 +11,7 @@ import {
   Menu,
   User as UserIcon,
 } from "lucide-react";
-import { isMockLoggedIn, mockUser } from "@/app/lib/mockAuth";
+import { signOut, useSession } from "@/app/lib/auth-client";
 
 const links = [
   { href: "/", label: "Home" },
@@ -26,11 +27,15 @@ function NavLinks() {
   ));
 }
 
-export default function Navbar({ user = isMockLoggedIn ? mockUser : null }) {
+export default function Navbar() {
   const router = useRouter();
+  const { data: session, isPending } = useSession();
+  const user = session?.user;
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    await signOut();
     router.push("/");
+    router.refresh();
   };
 
   return (
@@ -70,7 +75,9 @@ export default function Navbar({ user = isMockLoggedIn ? mockUser : null }) {
         </div>
 
         <div className="navbar-end gap-2">
-          {user ? (
+          {isPending ? (
+            <span className="loading loading-spinner loading-sm" />
+          ) : user ? (
             <div className="flex items-center gap-3">
               <div className="hidden text-right md:block">
                 <p className="text-sm font-bold leading-none">{user.name}</p>
@@ -86,12 +93,13 @@ export default function Navbar({ user = isMockLoggedIn ? mockUser : null }) {
                   aria-label="Open user menu"
                 >
                   <div className="w-10 rounded-full">
-                    <Image
-                      src={user.image}
-                      alt={user.name}
-                      width={40}
-                      height={40}
-                    />
+                    {user.image ? (
+                      <img src={user.image} alt={user.name} />
+                    ) : (
+                      <div className="grid h-full place-items-center bg-primary text-sm font-bold text-white">
+                        {user.name?.slice(0, 1).toUpperCase() || "U"}
+                      </div>
+                    )}
                   </div>
                 </button>
                 <ul

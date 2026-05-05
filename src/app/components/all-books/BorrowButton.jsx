@@ -3,12 +3,17 @@
 import { useState } from "react";
 import Link from "next/link";
 import { BookCheck } from "lucide-react";
-import { isMockLoggedIn } from "@/app/lib/mockAuth";
+import { useSession } from "@/app/lib/auth-client";
 
 export default function BorrowButton() {
   const [message, setMessage] = useState("");
+  const { data: session, isPending } = useSession();
 
-  if (!isMockLoggedIn) {
+  if (isPending) {
+    return <span className="loading loading-spinner loading-md" />;
+  }
+
+  if (!session?.user) {
     return (
       <Link href="/login" className="btn btn-primary text-white">
         Login to Borrow
