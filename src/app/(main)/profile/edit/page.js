@@ -33,10 +33,10 @@ export default async function EditProfilePage() {
         </Link>
 
         <div className="overflow-hidden rounded-lg border border-base-300 bg-base-100 shadow-xl">
-          <div className="bg-neutral px-6 py-8 text-neutral-content md:px-8">
+          <div className="bg-black px-6 py-8 text-neutral-content md:px-8">
             <div className="flex items-center gap-5">
               <div className="avatar">
-                <div className="w-24 rounded-lg border border-white/20 bg-white/10">
+                <div className="w-24 rounded-2xl border border-white/20 bg-white/10">
                   {user.image ? (
                     <img src={user.image} alt={user.name} />
                   ) : (
@@ -47,7 +47,7 @@ export default async function EditProfilePage() {
                 </div>
               </div>
               <div>
-                <p className="flex items-center gap-2 font-bold uppercase tracking-[0.2em] text-primary">
+                <p className="flex items-center gap-2 font-bold uppercase tracking-[0.2em]">
                   <UserRound size={18} />
                   Account Settings
                 </p>

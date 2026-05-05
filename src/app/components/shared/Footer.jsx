@@ -68,10 +68,6 @@ export default function Footer() {
               <Phone size={17} className="text-primary" />
               +8801777768700
             </p>
-            <p className="flex items-center gap-3">
-              <MapPin size={17} className="text-primary" />
-              Dhaka, Bangladesh
-            </p>
           </div>
         </div>
       </div>
