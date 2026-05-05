@@ -2,18 +2,17 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 import { updateUser } from "@/app/lib/auth-client";
 
 export default function ProfileUpdateForm({ user }) {
   const router = useRouter();
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleUpdate = async (event) => {
     event.preventDefault();
     setError("");
-    setSuccess("");
     setIsSubmitting(true);
 
     const formData = new FormData(event.currentTarget);
@@ -29,7 +28,7 @@ export default function ProfileUpdateForm({ user }) {
       return;
     }
 
-    setSuccess("Profile updated.");
+    toast.success("Profile updated successfully.");
     router.refresh();
   };
 
@@ -56,11 +55,6 @@ export default function ProfileUpdateForm({ user }) {
       {error && (
         <div className="alert alert-error py-3 text-sm">
           <span>{error}</span>
-        </div>
-      )}
-      {success && (
-        <div className="alert alert-success py-3 text-sm">
-          <span>{success}</span>
         </div>
       )}
       <button

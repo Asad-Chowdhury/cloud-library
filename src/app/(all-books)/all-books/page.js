@@ -1,8 +1,15 @@
 import BooksExplorer from "@/app/components/all-books/BooksExplorer";
 
 export const metadata = {
-  title: "All Books | Cloud Library",
-  description: "Search and filter the Cloud Library catalog.",
+  title: "All Books",
+  description:
+    "Search Cloud Library's book catalog and filter available titles by Story, Tech, and Science.",
+  openGraph: {
+    title: "All Books | Cloud Library",
+    description:
+      "Browse real book titles, inspect available copies, and open details before borrowing.",
+    url: "/all-books",
+  },
 };
 
 export default function AllBooksPage() {

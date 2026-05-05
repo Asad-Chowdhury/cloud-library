@@ -14,7 +14,9 @@ import {
 import { auth } from "@/app/lib/auth";
 
 export const metadata = {
-  title: "My Profile | Cloud Library",
+  title: "My Profile",
+  description:
+    "View your Cloud Library reader profile, account status, and borrowing dashboard.",
 };
 
 export const dynamic = "force-dynamic";

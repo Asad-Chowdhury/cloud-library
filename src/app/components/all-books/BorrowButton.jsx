@@ -1,12 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { BookCheck } from "lucide-react";
+import { toast } from "react-toastify";
 import { useSession } from "@/app/lib/auth-client";
 
 export default function BorrowButton() {
-  const [message, setMessage] = useState("");
   const { data: session, isPending } = useSession();
 
   if (isPending) {
@@ -22,20 +21,13 @@ export default function BorrowButton() {
   }
 
   return (
-    <div className="space-y-3">
-      <button
-        type="button"
-        className="btn btn-primary text-white"
-        onClick={() => setMessage("Borrow request confirmed.")}
-      >
-        <BookCheck size={18} />
-        Borrow This Book
-      </button>
-      {message && (
-        <div className="alert alert-success max-w-md py-3 text-sm">
-          <span>{message}</span>
-        </div>
-      )}
-    </div>
+    <button
+      type="button"
+      className="btn btn-primary text-white"
+      onClick={() => toast.success("Borrow request confirmed.")}
+    >
+      <BookCheck size={18} />
+      Borrow This Book
+    </button>
   );
 }

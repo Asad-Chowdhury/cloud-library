@@ -13,8 +13,33 @@ export async function generateMetadata({ params }) {
   const { id } = await params;
   const book = getBookById(id);
 
+  if (!book) {
+    return {
+      title: "Book Not Found",
+      description: "The requested Cloud Library book could not be found.",
+    };
+  }
+
   return {
-    title: book ? `${book.title} | Cloud Library` : "Book | Cloud Library",
+    title: book.title,
+    description: `${book.title} by ${book.author}. ${book.description}`,
+    openGraph: {
+      title: `${book.title} by ${book.author}`,
+      description: book.description,
+      url: `/books/${book.id}`,
+      images: [
+        {
+          url: book.image_url,
+          alt: `${book.title} cover`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${book.title} | Cloud Library`,
+      description: book.description,
+      images: [book.image_url],
+    },
   };
 }
 

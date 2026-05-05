@@ -8,7 +8,9 @@ import ProfileUpdateForm from "@/app/components/shared/ProfileUpdateForm";
 import { auth } from "@/app/lib/auth";
 
 export const metadata = {
-  title: "Update Profile | Cloud Library",
+  title: "Update Profile",
+  description:
+    "Update your Cloud Library profile name and image using BetterAuth account settings.",
 };
 
 export const dynamic = "force-dynamic";
