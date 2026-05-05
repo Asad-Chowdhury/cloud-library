@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Cloud Library
 
-## Getting Started
+Cloud Library is a modern digital library application built with Next.js. It helps users explore a curated collection of Story, Tech, and Science books, search by title, filter by category, view book details, and use placeholder authentication screens that are ready for BetterAuth integration.
 
-First, run the development server:
+## Live URL
+
+Deployment URL: `https://cloud-library.vercel.app`
+
+Update this URL after deploying the project to Vercel or your chosen hosting platform.
+
+## Purpose
+
+The project digitizes the traditional library experience with responsive browsing, private-route-ready profile and book details pages, and a clean foundation for BetterAuth and MongoDB integration.
+
+## Key Features
+
+- Responsive navbar with Home, All Books, My Profile, login state UI, and logout action.
+- Home page banner with Browse Now CTA.
+- Scrolling new-arrivals marquee.
+- Featured books section using local JSON-style data.
+- Two extra home sections for platform readiness and reading stats.
+- All Books page with title search and category sidebar filtering.
+- Book details page with cover, author, description, availability, and borrow confirmation.
+- Login and Register UI routes grouped under `(auth)`.
+- Profile and update profile UI prepared for protected access.
+- Custom footer with social media links and contact information.
+- Environment variable template for BetterAuth and MongoDB keys.
+
+## NPM Packages Used
+
+- `next`
+- `react`
+- `react-dom`
+- `tailwindcss`
+- `@tailwindcss/postcss`
+- `daisyui`
+- `lucide-react`
+- `swiper`
+- `eslint`
+- `eslint-config-next`
+- `babel-plugin-react-compiler`
+
+## Environment Variables
+
+Create a `.env.local` file using `.env.example` as the template. Keep real credentials out of Git.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+BETTER_AUTH_SECRET=
+BETTER_AUTH_URL=http://localhost:3000
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+MONGODB_URI=
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Run Locally
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Build
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run lint
+npm run build
+```
