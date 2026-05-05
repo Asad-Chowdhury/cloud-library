@@ -1,4 +1,4 @@
-import BooksExplorer from "@/app/components/books/BooksExplorer";
+import BooksExplorer from "@/app/components/all-books/BooksExplorer";
 
 export const metadata = {
   title: "All Books | Cloud Library",

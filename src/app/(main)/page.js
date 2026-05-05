@@ -1,4 +1,4 @@
-import Banner from "../components/shared/Banner";
+import Banner from "../components/home/Banner";
 import HomeSections from "../components/home/HomeSections";
 import Marquee from "../components/home/Marquee";
 

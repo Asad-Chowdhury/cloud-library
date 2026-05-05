@@ -7,7 +7,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { books } from "@/app/data/books";
-import BookCard from "@/app/components/books/BookCard";
+import BookCard from "@/app/components/all-books/BookCard";
 
 export default function HomeSections() {
   const featuredBooks = books.slice(0, 4);

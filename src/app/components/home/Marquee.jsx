@@ -7,7 +7,7 @@ export default function Marquee() {
     .join(" | ")} | Special Discount on Memberships | Borrow smarter with Cloud Library`;
 
   return (
-    <section className="overflow-hidden border-y border-base-300 bg-primary py-3 text-primary-content">
+    <section className="overflow-hidden border-y border-base-300 bg-primary py-3 text-primary-content cursor-pointer my-5">
       <div className="marquee-track flex w-max gap-10 whitespace-nowrap text-sm font-bold uppercase tracking-[0.16em]">
         <span>{text}</span>
         <span>{text}</span>

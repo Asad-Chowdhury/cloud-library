@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
-import BorrowButton from "@/app/components/books/BorrowButton";
+import BorrowButton from "@/app/components/all-books/BorrowButton";
 import { books, getBookById } from "@/app/data/books";
 
 export function generateStaticParams() {
