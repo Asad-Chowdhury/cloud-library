@@ -1,63 +1,127 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Search, ShieldCheck } from "lucide-react";
+import { ArrowRight, LogIn, Sparkles, Zap } from "lucide-react";
+import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export default function Banner() {
   return (
-    <section className="relative overflow-hidden bg-neutral text-neutral-content">
-      <Image
-        src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=2000"
-        alt="Modern library shelves"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover opacity-35"
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-neutral via-neutral/85 to-neutral/35" />
-      <div className="relative mx-auto grid min-h-[calc(100vh-72px)] max-w-7xl items-center gap-10 px-4 py-16 md:grid-cols-[1.1fr_0.9fr] md:px-8">
-        <div>
-          <div className="badge badge-primary badge-lg text-white">
-            Digital borrowing made simple
+    <section className="relative h-[85vh] overflow-hidden">
+      <Swiper
+        modules={[Autoplay, Pagination, Navigation, EffectFade]}
+        effect="fade"
+        autoplay={{ delay: 5000 }}
+        pagination={{ clickable: true }}
+        navigation
+        loop
+        className="h-full"
+      >
+        <SwiperSlide>
+          <div className="relative h-full text-white">
+            <Image
+              src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&q=80&w=2000"
+              alt="Library shelves"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 flex items-center bg-gradient-to-r from-black/80 via-black/40 to-transparent">
+              <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
+                <div className="max-w-2xl space-y-6">
+                  <div className="flex w-fit items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-4 py-1.5 text-accent">
+                    <Sparkles size={16} />
+                    <span className="text-xs font-bold uppercase tracking-[0.2em]">
+                      Curated Collection
+                    </span>
+                  </div>
+                  <h1 className="text-4xl font-black leading-[1.1] text-white md:text-7xl">
+                    Find Your Next <br />
+                    <span className="text-accent underline decoration-4 underline-offset-8">
+                      Literary Escape
+                    </span>
+                  </h1>
+                  <p className="max-w-lg text-lg font-light leading-relaxed text-gray-300 md:text-xl">
+                    Explore thousands of digital titles across science,
+                    technology, and classical storytelling. Your journey into
+                    the infinite begins here.
+                  </p>
+                  <div className="flex flex-col gap-3 sm:flex-row">
+                    <Link
+                      href="/all-books"
+                      className="btn btn-primary btn-lg rounded-full px-10 text-white shadow-xl shadow-primary/20 transition-transform hover:scale-105"
+                    >
+                      Browse Now
+                      <ArrowRight size={20} />
+                    </Link>
+                    <Link
+                      href="/login"
+                      className="btn btn-outline btn-lg rounded-full px-10 text-white"
+                    >
+                      <LogIn size={19} />
+                      Login
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <h1 className="mt-6 max-w-3xl text-5xl font-black leading-tight md:text-7xl">
-            Find Your Next Read
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-content/75">
-            Explore curated story, tech, and science titles from a responsive
-            library experience built for fast discovery and secure borrowing.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link href="/all-books" className="btn btn-primary btn-lg text-white">
-              Browse Now
-              <ArrowRight size={20} />
-            </Link>
-            <Link href="/login" className="btn btn-outline btn-lg text-white">
-              Login
-            </Link>
-          </div>
-        </div>
+        </SwiperSlide>
 
-        <div className="grid gap-4 rounded-lg border border-white/15 bg-white/10 p-5 backdrop-blur-md">
-          <div className="flex items-center gap-4 rounded-lg bg-neutral/60 p-4">
-            <Search className="text-primary" size={28} />
-            <div>
-              <p className="font-bold">Search by title</p>
-              <p className="text-sm text-neutral-content/65">
-                Quickly narrow the catalog by book name.
-              </p>
+        <SwiperSlide>
+          <div className="relative h-full text-white">
+            <Image
+              src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=2000"
+              alt="Tech library"
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 flex items-center bg-gradient-to-r from-black/80 via-black/40 to-transparent">
+              <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
+                <div className="max-w-2xl space-y-6">
+                  <div className="flex w-fit items-center gap-2 rounded-full border border-green-400/20 bg-green-400/10 px-4 py-1.5 text-green-400">
+                    <Zap size={16} />
+                    <span className="text-xs font-bold uppercase tracking-[0.2em]">
+                      Tech Revolution
+                    </span>
+                  </div>
+                  <h1 className="text-4xl font-black leading-[1.1] text-white md:text-7xl">
+                    Master the <br />
+                    <span className="text-green-400">Digital Horizon</span>
+                  </h1>
+                  <p className="max-w-lg text-lg font-light leading-relaxed text-gray-300 md:text-xl">
+                    The most comprehensive technical library for developers,
+                    engineers, and visionaries. Stay ahead of the curve.
+                  </p>
+                  <div className="flex flex-col gap-3 sm:flex-row">
+                    <Link
+                      href="/all-books"
+                      className="btn btn-primary btn-lg rounded-full px-10 text-white shadow-xl"
+                    >
+                      Browse Now
+                      <ArrowRight size={20} />
+                    </Link>
+                    <Link
+                      href="/login"
+                      className="btn btn-outline btn-lg rounded-full px-10 text-white"
+                    >
+                      <LogIn size={19} />
+                      Login
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="flex items-center gap-4 rounded-lg bg-neutral/60 p-4">
-            <ShieldCheck className="text-secondary" size={28} />
-            <div>
-              <p className="font-bold">Private route ready</p>
-              <p className="text-sm text-neutral-content/65">
-                Details and profile pages are prepared for BetterAuth.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+        </SwiperSlide>
+      </Swiper>
     </section>
   );
 }
