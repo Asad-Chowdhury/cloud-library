@@ -35,24 +35,24 @@ export default function ProfileUpdateForm({ user }) {
 
   return (
     <form onSubmit={handleUpdate} className="mt-8 grid gap-5">
-      <label className="form-control">
-        <span className="label-text mb-2 font-semibold">Name</span>
+      <fieldset className="fieldset">
+        <legend className="fieldset-legend">Name</legend>
         <input
           name="name"
           type="text"
           defaultValue={user.name}
           className="input input-bordered w-full"
         />
-      </label>
-      <label className="form-control">
-        <span className="label-text mb-2 font-semibold">Image</span>
+      </fieldset>
+      <fieldset className="fieldset">
+        <legend className="fieldset-legend">Image URL</legend>
         <input
           name="image"
           type="url"
           defaultValue={user.image || ""}
           className="input input-bordered w-full"
         />
-      </label>
+      </fieldset>
       {error && (
         <div className="alert alert-error py-3 text-sm">
           <span>{error}</span>
