@@ -50,7 +50,7 @@ export default function Footer() {
               My Profile
             </Link>
             <Link href="/login" className="hover:text-primary">
-              Login
+              Login Now
             </Link>
           </nav>
         </div>
